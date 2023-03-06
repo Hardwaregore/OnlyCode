@@ -5,6 +5,6 @@ git init --bare /git/$1
 
 chown -R git:git /git/*
 
-cd ../webUI/show
+cd ../publicI/show
 
-git clone git@localhost:/git/$1
+git clone ssh://git@localhost:/git/$1

@@ -1,4 +1,5 @@
 <?php
+try {
 $repo = $_GET['repo'];
 
 shell_exec("bash ../shell/pull.sh ../webUI/show/$repo");
@@ -14,7 +15,10 @@ foreach (scandir("./show/$repo") as $contents) {
         echo "<a href='repoconts.php?path=./show/$repo/$contents'>$contents</a>" . "<br>";
 }
 
-
+} catch (Exception $null) {
+  header("HTTP/1.1 500 Internal Server Error");
+  header("Location: 500.php");
+}
 
 ?>
 

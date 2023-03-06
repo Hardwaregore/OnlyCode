@@ -1,4 +1,5 @@
 <?php
+try {
 $folder = $_GET['folder'];
 
 echo "<button onclick='history.back()'>&lt;</button>";
@@ -12,6 +13,9 @@ foreach (scandir("$folder") as $item) {
         echo "<a href='repoconts.php?path=$folder/$item'>$item</a>" . "<br>";
 }
 
-
+} catch (Exception $null) {
+  header("HTTP/1.1 500 Internal Server Error");
+  header("Location: 500.php");
+}
 
 ?>

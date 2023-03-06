@@ -1,7 +1,12 @@
 
 
 <?php
+try{
 $contents = $_GET['path'];
+
+if (!file_exists($contents)) {
+  throw new Exception('lol get errored');
+}
 
 echo "<button onclick='history.back()'>&lt;</button>";
 echo "<button onclick='history.forward()'>&gt;</button>";
@@ -24,6 +29,10 @@ if (is_dir($contents)) {
   echo nl2br($conts);
 }
 
-
+} catch (Exception $null) {
+  header("HTTP/1.1 404 Not Found");
+  // header("Location: 500.php");
+  require("404.php");
+}
 
 ?>
