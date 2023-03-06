@@ -9,8 +9,8 @@
 <body>
     
     <?php
-    try {
-        throw new Exception("Lol get errored");
+
+        
         echo "<button onclick='history.back()' disabled>&lt;</button>";
         echo "<button onclick='history.forward()'>&gt;</button>";
         echo "<br>";
@@ -21,10 +21,7 @@
         }
         echo "<a href='inrepo.php?repo=$filename'>$filename</a>" . "<br>";
 }
-    } catch (Exception $null) {
-        header("HTTP/1.1 500 Internal Server Error");
-        header("Location: 500.php");
-      }
+
         
     ?>
 
