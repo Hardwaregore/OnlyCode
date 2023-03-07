@@ -26,7 +26,7 @@ if (is_dir($contents)) {
   echo "<br>";
   echo "-----------------------------------------------";
   echo "<br>";
-  echo nl2br($conts);
+  echo nl2br(htmlspecialchars($conts));
 }
 
 } catch (Exception $null) {
